@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivThumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="12dp"
+        android:contentDescription="@string/label_thumbnail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/navIconColor"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Code be like" />
+
+
+    <TextView
+        android:id="@+id/tvSubReddit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/navIconColor"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        tools:text="Programming Humor" />
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:paddingBottom="6dp"
+        android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="@id/tvSubReddit"
+        app:layout_constraintStart_toEndOf="@id/tvSubReddit"
+        app:layout_constraintTop_toTopOf="@id/tvSubReddit" />
+
+
+    <TextView
+        android:id="@+id/tvFlair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_flair"
+        android:gravity="center_vertical"
+        android:paddingStart="3dp"
+        android:paddingTop="1.5dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="1.5dp"
+        android:textColor="@android:color/white"
+        android:textSize="10.5sp"
+        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/tvSubReddit"
+        tools:ignore="SmallSp"
+        tools:text="Video" />
+
+    <TextView
+        android:id="@+id/tvOriginalContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_flair"
+        android:gravity="center_vertical"
+        android:paddingStart="3dp"
+        android:paddingTop="1.5dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="1.5dp"
+        android:text="@string/label_original_content"
+        android:textColor="@android:color/white"
+        android:textSize="10.5sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/tvFlair"
+        app:layout_constraintTop_toBottomOf="@id/tvSubReddit"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tvDomain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6.5dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/navIconColor"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/tvOriginalContent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubReddit"
+        tools:text="i.reddit.com" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/itemsBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="ivThumbnail,tvDomain" />
+
+    <ImageView
+        android:id="@+id/upVote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_up_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemsBarrier" />
+
+    <TextView
+        android:id="@+id/tvVoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/upVote"
+        app:layout_constraintStart_toEndOf="@id/upVote"
+        app:layout_constraintTop_toTopOf="@id/upVote"
+        tools:text="248" />
+
+    <ImageView
+        android:id="@+id/downVote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_down_arrow"
+        app:layout_constraintStart_toEndOf="@id/tvVoteCount"
+        app:layout_constraintTop_toBottomOf="@id/itemsBarrier" />
+
+    <TextView
+        android:id="@+id/tvCommentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_comment"
+        android:drawablePadding="8dp"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemsBarrier"
+        tools:text="14" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemsBarrier" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="upVote,tvVoteCount,downVote,tvCommentCount,menu" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/navIconColor"
+        app:layout_constraintTop_toBottomOf="@id/menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
